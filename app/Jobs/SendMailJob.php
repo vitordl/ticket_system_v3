@@ -28,7 +28,7 @@ class SendMailJob implements ShouldQueue
      */
     public function handle(): void
     {
-        logger('Welcome new user inside job!');
+        logger('Welcome new user inside job');
 
         Mail::to($this->user->email)
         ->send(new WelcomeNewUserMail($this->user->name));
