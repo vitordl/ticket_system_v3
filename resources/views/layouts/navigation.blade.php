@@ -15,6 +15,10 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('newticket')" :active="request()->routeIs('newticket')">
+                        {{ __('New Ticket') }}
+                    </x-nav-link>
                 </div>
             </div>
 
