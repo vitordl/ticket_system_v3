@@ -5,6 +5,7 @@
         <h4 class="font-bold">{{$t->title}}</h4>
 
         <div class="text-gray-700">{{$t->description}}</div>
+        <div class="text-xs">{{$t->created_at->format('d/m/y H:i')}}</div>
 
     </div>
     @endforeach

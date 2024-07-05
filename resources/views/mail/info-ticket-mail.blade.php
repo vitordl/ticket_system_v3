@@ -1,10 +1,13 @@
 <x-mail::message>
-# Introduction
 
-The body of your message.
+The ticket was created by {{$name}}!
+
+# {{$title}}
+
+{{$desc}}
 
 <x-mail::button :url="''">
-Button Text
+More info
 </x-mail::button>
 
 Thanks,<br>

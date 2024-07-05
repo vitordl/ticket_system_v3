@@ -10,7 +10,7 @@ class ShowTicketsLivewire extends Component
     public function render()
     {
 
-        $tickets = Ticket::all();
+        $tickets = Ticket::latest()->get();
         return view('livewire.show-tickets-livewire', compact('tickets'));
     }
 }

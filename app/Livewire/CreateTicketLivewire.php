@@ -9,7 +9,7 @@ use Livewire\Component;
 
 class CreateTicketLivewire extends Component
 {
-    public string $title, $description, $user_id, $support_id;
+    public string $title, $description, $support_id;
     
 
     public function render()
@@ -19,25 +19,32 @@ class CreateTicketLivewire extends Component
 
     public function saveTicket(){
 
+
+        $user = auth()->user();
+
         $this->validate([
             'title' => 'required',
             'description' => 'required',
-            'user_id' => 'required|numeric',
             'support_id' => 'required|numeric',
         ]);
 
         Ticket::create([
             'title' => $this->title,
             'description' => $this->description,
-            'user_id' => $this->user_id,
+            'user_id' => auth()->user()->id,
             'support_id' => $this->support_id,
         ]);
-
+        
+        
+        SendInfoTicketJob::dispatch($this->title, $this->description, $user);
+        //aqui estou passando p.e    oi ,     ola tudo bem?
+        
         $this->reset([
-            'title', 'description', 'user_id', 'support_id'
+        'title', 'description', 'support_id'
         ]);
 
-        // SendInfoTicketJob::dispatch(que parametros?);
+
+
         // processo a resolver..
 
  
