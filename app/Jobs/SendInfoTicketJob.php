@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Mail\InfoTicketAdminMail;
 use App\Mail\InfoTicketMail;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
@@ -30,8 +31,11 @@ class SendInfoTicketJob implements ShouldQueue
     {
         logger('email about info ticket created');
         Mail::to($this->user->email)->send(new InfoTicketMail($this->title, $this->desc, $this->user->name));
-      
-
+        
+        Mail::to('adminticket@teste.com')->send(new InfoTicketAdminMail($this->title, $this->desc, $this->user->name));
+        
+        
+        
 
     }
 }

@@ -1,15 +1,13 @@
 <x-mail::message>
+# Ticket was created
 
-You created a ticket
+The user {{$name}} created a new ticket
 
-# {{$title}}
-
+# Ticket {{$title}}
 {{$desc}}
 
-Soon you will have a reply from our supports. 
-
 <x-mail::button :url="''">
-More info
+Access
 </x-mail::button>
 
 Thanks,<br>
