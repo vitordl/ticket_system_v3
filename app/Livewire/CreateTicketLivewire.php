@@ -28,7 +28,7 @@ class CreateTicketLivewire extends Component
             'support_id' => 'required|numeric',
         ]);
 
-        Ticket::create([
+        $ticket = Ticket::create([
             'title' => $this->title,
             'description' => $this->description,
             'user_id' => auth()->user()->id,
@@ -38,14 +38,14 @@ class CreateTicketLivewire extends Component
         
         SendInfoTicketJob::dispatch($this->title, $this->description, $user);
         //aqui estou passando p.e    oi ,     ola tudo bem?
+
+        notify()->success('Ticket '.$ticket->id.' was created successfully!');
+
         
         $this->reset([
         'title', 'description', 'support_id'
         ]);
 
-
-
-        // processo a resolver..
 
  
     }

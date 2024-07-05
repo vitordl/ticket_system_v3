@@ -30,7 +30,7 @@ class SendInfoTicketJob implements ShouldQueue
     {
         logger('email about info ticket created');
         Mail::to($this->user->email)->send(new InfoTicketMail($this->title, $this->desc, $this->user->name));
-        // oi       olá tudo bem?
+      
 
 
     }

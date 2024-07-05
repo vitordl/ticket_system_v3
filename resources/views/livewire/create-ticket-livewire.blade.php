@@ -6,7 +6,7 @@
             <input type="text" name="" id="title" wire:model='title' placeholder="what's the title?" class="w-full rounded-lg border-gray-500">
         </div>
         @error('title')
-            {{$message}}
+            <div class="text-xs text-amber-600">{{$message}}</div>
         @enderror
     
 
@@ -15,7 +15,7 @@
             <input type="text" name="" id="support_id" wire:model='support_id' placeholder="what's the suport-id?" class="w-full rounded-lg border-gray-500">
         </div>
         @error('support_id')
-            {{$message}}
+            <div class="text-xs text-amber-600">{{$message}}</div>
         @enderror
 
 
@@ -23,7 +23,7 @@
             <textarea wire:model='description' name="" id="description" cols="30" rows="5" class="w-full rounded-lg border-gray-500">aqui...</textarea>
         </div>
         @error('description')
-            {{$message}}
+           <div class="text-xs text-amber-600">{{$message}}</div> 
         @enderror
 
         <div class="mt-2">
@@ -32,6 +32,9 @@
 
         
     </form>
+    
+    <x-notify::notify />
+
     
    
 </div>
