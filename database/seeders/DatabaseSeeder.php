@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Reply;
 use App\Models\Ticket;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -16,11 +17,10 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(20)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
-
+      
         Ticket::factory(12)->create();
+
+        Reply::factory(7)->create();
+
     }
 }
