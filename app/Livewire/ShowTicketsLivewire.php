@@ -11,7 +11,8 @@ class ShowTicketsLivewire extends Component
     public function render()
     {
 
-        $tickets = Ticket::latest()->get();
+        $tickets = Ticket::where('user_id', '=', auth()->user()->id)->latest()->get();
+
         return view('livewire.show-tickets-livewire', compact('tickets'));
     }
 

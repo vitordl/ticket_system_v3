@@ -32,7 +32,7 @@
                                 Comments/Replies section
 
                                 <div>
-                                    <livewire:reply-ticket-livewire/>
+                                    <livewire:reply-ticket-livewire :ticketId="$ticket->id"/>
                                 </div>
                             </div>
 

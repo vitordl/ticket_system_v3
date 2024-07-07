@@ -18,7 +18,10 @@
     <div class="mt-8 text-sm">
         @if($replies)
             @foreach ($replies as $r)
-              <div class="border p-4 rounded-lg mt-4">{{$r->reply}}</div>  
+              <div class="border p-4 rounded-lg mt-4">
+                <p class="text-blue-600 text-xs">{{$r->user->name}}</p>
+                <div>{{$r->reply}}</div>
+              </div>  
             @endforeach
         @else
             Waiting for replies...

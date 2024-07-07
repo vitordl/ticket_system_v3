@@ -9,10 +9,11 @@ class ReplyTicketLivewire extends Component
 {
 
     public string $reply;
+    public $ticketId;
 
     public function render()
     {
-        $replies = Reply::where('ticket_id', '=', 70)->latest()->get();
+        $replies = Reply::where('ticket_id', '=', $this->ticketId)->latest()->get();
         return view('livewire.reply-ticket-livewire', compact('replies'));
     }
 
@@ -24,7 +25,7 @@ class ReplyTicketLivewire extends Component
 
         Reply::create([
             'reply' => $this->reply,
-            'ticket_id' => 70,
+            'ticket_id' => $this->ticketId,
             'user_id' => auth()->user()->id
         ]);
 

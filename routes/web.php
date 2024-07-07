@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('ticket/{ticket}', [ShowTicketsLivewire::class, 'show'])->name('ticket');
 
+
   
 });
 
