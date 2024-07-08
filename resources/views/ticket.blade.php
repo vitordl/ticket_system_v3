@@ -28,8 +28,8 @@
                                 <p class="text-sm mt-5">{{$ticket->user->name}}</p>
                             </div>
                             
-                            <div class="border p-4 my-4">  
-                                Comments/Replies section
+                            <div class="border  p-4 my-4 ">  
+                                <h4 class="uppercase font-bold">Replies Section</h4>
 
                                 <div>
                                     <livewire:reply-ticket-livewire :ticketId="$ticket->id"/>
@@ -38,9 +38,7 @@
 
                         </div>
                         <div class="col-span-4 mx-2 ">
-                            {{-- <div class="bg-blue-200 rounded-lg shadow-xl">
-                                <livewire:show-tickets-livewire/>
-                            </div> --}}
+                           
                             boa noite
                         </div>
                     </div>

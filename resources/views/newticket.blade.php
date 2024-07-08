@@ -20,9 +20,9 @@
                             <livewire:create-ticket-livewire/>
                         </div>
                         <div class="col-span-4 mx-2 ">
-                            <div class="bg-blue-200 rounded-lg shadow-xl">
+                            {{-- <div class="bg-blue-200 rounded-lg shadow-xl">
                                 Boa tarde
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

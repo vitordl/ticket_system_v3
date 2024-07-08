@@ -10,8 +10,11 @@ class ShowTicketsLivewire extends Component
 
     public function render()
     {
-
-        $tickets = Ticket::where('user_id', '=', auth()->user()->id)->latest()->get();
+        if(auth()->user()->isAdmin){
+            $tickets = Ticket::latest()->get();
+        }else{
+            $tickets = Ticket::where('user_id', '=', auth()->user()->id)->latest()->get();
+        }
 
         return view('livewire.show-tickets-livewire', compact('tickets'));
     }

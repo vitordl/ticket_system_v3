@@ -20,8 +20,13 @@
                             <livewire:show-tickets-livewire/>
                         </div>
                         <div class="col-span-4 mx-2 ">
-                            <div class="bg-blue-200 rounded-lg shadow-xl">
-                                Boa tarde
+                            <div class="bg-gray-200 rounded-lg shadow-xl text-center">
+                                <h4 class="font-bold uppercase">Recent activity</h4>
+                                <div class="mt-4 text-xs">
+                                    <p>You creted a new ticket</p>
+                                    <p>You creted a new ticket</p>
+
+                                </div>
                             </div>
                         </div>
                     </div>

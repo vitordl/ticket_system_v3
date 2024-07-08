@@ -8,15 +8,6 @@
         @error('title')
             <div class="text-xs text-amber-600">{{$message}}</div>
         @enderror
-    
-
-
-        <div class="mt-2">
-            <input type="text" name="" id="support_id" wire:model='support_id' placeholder="what's the suport-id?" class="w-full rounded-lg border-gray-500">
-        </div>
-        @error('support_id')
-            <div class="text-xs text-amber-600">{{$message}}</div>
-        @enderror
 
 
         <div class="mt-2">

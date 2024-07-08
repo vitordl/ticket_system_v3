@@ -37,11 +37,34 @@
             <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('register') }}">
                 {{ __('Register here!') }}
             </a>
-          
-
+            
+           
             <x-primary-button class="ms-3">
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
     </form>
+
+    <button id="adminLogin" class="text-xs mx-2">adminLogin</button>
+    <button id="userLogin" class="text-xs mx-2">userLogin</button>
+    <button id="user2Login" class="text-xs mx-2">user2Login</button>
+
+
+    <script>
+        document.querySelector('#adminLogin').addEventListener('click', function(){
+            document.querySelector('#email').value = 'adminticket@teste.com'
+            document.querySelector('#password').value = 'admin123'
+        })
+
+        document.querySelector('#userLogin').addEventListener('click', function(){
+            document.querySelector('#email').value = 'usertest@teste.com'
+            document.querySelector('#password').value = 'useruser123'
+        })
+
+        document.querySelector('#user2Login').addEventListener('click', function(){
+            document.querySelector('#email').value = 'usertest2@teste.com'
+            document.querySelector('#password').value = 'useruser123'
+        })
+    </script>
+
 </x-guest-layout>

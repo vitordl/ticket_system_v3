@@ -1,6 +1,6 @@
 <div>
     <form wire:submit.prevent='saveReply()'>
-        <textarea wire:model='reply' class="w-full border-gray-400" cols="30" rows="3"></textarea>
+        <textarea wire:model='reply' class="w-full border-gray-300" cols="30" rows="3"></textarea>
         
         <div class="text-xs text-amber-600">
             @error('reply')
@@ -18,9 +18,14 @@
     <div class="mt-8 text-sm">
         @if($replies)
             @foreach ($replies as $r)
-              <div class="border p-4 rounded-lg mt-4">
-                <p class="text-blue-600 text-xs">{{$r->user->name}}</p>
+              <div class="border border-4  bg-gray-50 p-4 rounded-lg mt-4 ">
+                @if($r->user->isAdmin)
+                    <p class="text-red-600 text-xs bg-red-200 inline-flex px-1 rounded">{{$r->user->name}}</p>
+                @else  
+                    <p class="text-blue-600 text-xs bg-gray-200 inline-flex px-1 rounded">{{$r->user->name}}</p>
+                @endif
                 <div>{{$r->reply}}</div>
+                <div class="text-xs text-end">{{$r->created_at->format('d/m/y H:i')}}</div>
               </div>  
             @endforeach
         @else
