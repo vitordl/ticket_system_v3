@@ -1,6 +1,6 @@
 <x-mail::message>
 
-You created a ticket
+You created a ticket and it's waiting for approval
 
 # {{$title}}
 

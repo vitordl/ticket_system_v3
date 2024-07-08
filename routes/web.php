@@ -23,8 +23,12 @@ Route::middleware('auth')->group(function () {
 
     Route::get('ticket/{ticket}', [ShowTicketsLivewire::class, 'show'])->name('ticket');
 
+    Route::get('/ticket-pending', [ShowTicketsLivewire::class, 'show'])->name('ticket-pending');
+    Route::get('/ticket-approved', [ShowTicketsLivewire::class, 'show'])->name('ticket-approved');
+    Route::get('/ticket-open', [ShowTicketsLivewire::class, 'show'])->name('ticket-open');
+    Route::get('/ticket-closed', [ShowTicketsLivewire::class, 'show'])->name('ticket-closed');
 
-  
+
 });
 
 require __DIR__.'/auth.php';

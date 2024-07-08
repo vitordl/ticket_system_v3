@@ -25,7 +25,16 @@
     </form>
     
     <x-notify::notify />
-
     
+    <button  type="button" class="text-xs " id="preencher">Preencher</button>
+
+
+    <script>
+        document.querySelector('#preencher').addEventListener('click', function (){
+            document.querySelector('#title').value = 'Lorem ipsum dolor sit amet'
+            document.querySelector('#description').value = 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo corporis.'
+
+        })
+    </script>
    
 </div>

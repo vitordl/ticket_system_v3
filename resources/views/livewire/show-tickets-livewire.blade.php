@@ -13,7 +13,10 @@
             
                     <div class="text-gray-700">{{Str::limit($t->description, 150)}}</div>
                     <div class="text-xs text-end">{{$t->created_at->format('d/m/y H:i')}}</div>
-            
+                    
+                    @if($t->reply->count())
+                    <div class="text-xs">Commennts ({{count($t->reply)}})</div>
+                    @endif
                 </div>
             </a>
 
