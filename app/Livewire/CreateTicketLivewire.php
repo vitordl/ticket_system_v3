@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Events\TicketCreatedEvent;
 use App\Jobs\SendInfoTicketJob;
 use App\Jobs\SendInfoTicketMail;
 use App\Models\Ticket;
@@ -38,6 +39,8 @@ class CreateTicketLivewire extends Component
 
         notify()->success('Ticket '.$ticket->id.' was created successfully! And its waiting for approval');
 
+        event(new TicketCreatedEvent());
+      
       
         $this->reset([
         'title', 'description'

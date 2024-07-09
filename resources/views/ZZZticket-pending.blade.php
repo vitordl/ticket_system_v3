@@ -42,6 +42,7 @@
                                 <div class="mt-4 text-xs">
                                     <p>You creted a new ticket</p>
                                     <p>You creted a new ticket</p>
+                                    <p>You creted a new ticket33</p>
 
                                 </div>
                             </div>

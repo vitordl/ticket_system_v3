@@ -21,12 +21,20 @@ Route::middleware('auth')->group(function () {
         return view('newticket');
     })->name('newticket');
 
-    Route::get('ticket/{ticket}', [ShowTicketsLivewire::class, 'show'])->name('ticket');
+    // Route::get('/open', function (){
+    //     return view('tickets-open');
+    // })->name('tickets-open');
 
-    Route::get('/ticket-pending', [ShowTicketsLivewire::class, 'show'])->name('ticket-pending');
-    Route::get('/ticket-approved', [ShowTicketsLivewire::class, 'show'])->name('ticket-approved');
-    Route::get('/ticket-open', [ShowTicketsLivewire::class, 'show'])->name('ticket-open');
-    Route::get('/ticket-closed', [ShowTicketsLivewire::class, 'show'])->name('ticket-closed');
+    Route::get('open-tickets', [ShowTicketsLivewire::class, 'show_only_open_tickets'])->name('show-open-tickets');
+
+    Route::get('ticket/{ticket}', [ShowTicketsLivewire::class, 'show'])->name('ticket');
+    Route::get('approve/{ticket}', [ShowTicketsLivewire::class, 'changeStatusToOpen'])->name('ticket-open');
+    // Route::get('ticket/{ticket}', [ShowTicketsLivewire::class, 'changeStatusToRefused'])->name('ticket-refused');
+
+    // Route::get('/ticket-pending', [ShowTicketsLivewire::class, 'show'])->name('ticket-pending');
+    // Route::get('/ticket-approved', [ShowTicketsLivewire::class, 'show'])->name('ticket-approved');
+    // Route::get('/ticket-open', [ShowTicketsLivewire::class, 'show'])->name('ticket-openss');
+    // Route::get('/ticket-closed', [ShowTicketsLivewire::class, 'show'])->name('ticket-closed');
 
 
 });

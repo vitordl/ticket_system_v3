@@ -3,7 +3,7 @@
     @if($tickets->count() > 0)
         @foreach ($tickets as $t)
 
-            <a href="{{route('ticket', $t->id)}}">
+            <a href="{{route('ticket', $t->id)}}">   
                 <div class="border bg-orange-200 mb-4 p-2 rounded-lg shadow-xl">
 
                     @if(auth()->user()->isAdmin)

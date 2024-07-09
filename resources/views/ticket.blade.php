@@ -27,6 +27,19 @@
                                 
                                 <p class="text-sm mt-5">{{$ticket->user->name}}</p>
                             </div>
+
+                            @if(auth()->user()->isAdmin)
+
+                                @if($ticket->status == 'pending')
+                            
+                                <div class="my-4 text-center">
+                                
+                                    <a href="{{route('ticket-open', $ticket->id)}}" class="bg-emerald-500 text-white px-4 py-2 rounded">Approve</a>
+                                    <a href="" class="bg-red-500 text-white px-4 py-2 rounded">Deny</a>
+                                    {{-- {{route('ticket-refused', $ticket->id)}} --}}
+                                </div>
+                                @endif
+                            @endif
                             
                             <div class="border  p-4 my-4 ">  
                                 <h4 class="uppercase font-bold">Replies Section</h4>
