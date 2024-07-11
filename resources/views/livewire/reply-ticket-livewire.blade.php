@@ -2,7 +2,7 @@
 
     @if($ticketStatus == 'open')
     <form wire:submit.prevent='saveReply()'>
-        <textarea wire:model='reply' class="w-full border-gray-300" cols="30" rows="3"></textarea>
+        <textarea wire:model='reply' class="w-full border-gray-300 rounded" cols="30" rows="3"></textarea>
         
         <div class="text-xs text-amber-600">
             @error('reply')

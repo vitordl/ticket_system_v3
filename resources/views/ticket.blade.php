@@ -8,17 +8,17 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
+                <div class="p-4 text-gray-900 dark:text-gray-100">
 
                     <div class="uppercase text-2xl mb-4">
                         ticket [{{$ticket->id}}]
                     </div>
                     
-                    <div class="grid grid-cols-12">
+                    <div class="md:grid grid-cols-12">
                         
                         <div class="col-span-8">
 
-                            <div class="border p-4">
+                            <div>
                                 <h4 class="font-bold text-xl">{{$ticket->title}}</h4>
                                 
                                 <div class="mt-3">{{$ticket->description}}</div>
@@ -51,10 +51,12 @@
                                 </div>
 
                             </div>
+
                             @endif
+                            <hr class="mt-5">
                             
                             @if($ticket->status == 'open' || $ticket->status == 'closed')
-                            <div class="border  p-4 my-4 ">  
+                            <div class="mt-10">  
                                 <h4 class="uppercase font-bold">Replies Section</h4>
 
                                 <div>

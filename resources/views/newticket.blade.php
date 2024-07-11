@@ -14,7 +14,7 @@
                         New ticket
                     </div>
                     
-                    <div class="grid grid-cols-12">
+                    <div class="md:grid grid-cols-12">
                         
                         <div class="col-span-8">
                             <livewire:create-ticket-livewire/>
