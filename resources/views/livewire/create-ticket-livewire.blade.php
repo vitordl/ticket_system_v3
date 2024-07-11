@@ -3,7 +3,10 @@
     <form method="post" wire:submit.prevent='saveTicket()'>
 
         <div class="mb-2">
-            <input type="text" name="" id="title" wire:model='title' placeholder="what's the title?" class="w-full rounded-lg border-gray-500">
+            <div>
+                <label for="title">Title</label>
+            </div>
+            <input type="text" name="title" id="title" wire:model='title' class="w-full rounded-lg border-gray-500">
         </div>
         @error('title')
             <div class="text-xs text-amber-600">{{$message}}</div>
@@ -11,7 +14,11 @@
 
 
         <div class="mt-2">
-            <textarea wire:model='description' name="" id="description" cols="30" rows="5" class="w-full rounded-lg border-gray-500">aqui...</textarea>
+            <div>
+                <label for="description">Description</label>
+            </div>
+
+            <textarea wire:model='description' name="description" id="description" cols="30" rows="5" class="w-full rounded-lg border-gray-500">aqui...</textarea>
         </div>
         @error('description')
            <div class="text-xs text-amber-600">{{$message}}</div> 

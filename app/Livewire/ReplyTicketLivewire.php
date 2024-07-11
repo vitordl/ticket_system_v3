@@ -2,7 +2,9 @@
 
 namespace App\Livewire;
 
+use App\Jobs\TicketRepliedJob;
 use App\Models\Reply;
+use App\Models\Ticket;
 use Livewire\Component;
 
 class ReplyTicketLivewire extends Component
@@ -10,6 +12,7 @@ class ReplyTicketLivewire extends Component
 
     public string $reply;
     public $ticketId;
+    public $ticketStatus;
 
     public function render()
     {
@@ -23,13 +26,26 @@ class ReplyTicketLivewire extends Component
             'reply' => 'required'
         ]);
 
-        Reply::create([
+        $reply = Reply::create([
             'reply' => $this->reply,
             'ticket_id' => $this->ticketId,
             'user_id' => auth()->user()->id
         ]);
 
+        $ticket = Ticket::find($this->ticketId);
+
+        
+
         $this->reset('reply');
+
+        
+        
+        TicketRepliedJob::dispatch($this->ticketId, $reply->reply, 
+        $ticket->user->email, $reply->user->email,
+        $ticket->user->id, $reply->user->id
+    
+        );
+        
     }
 
 

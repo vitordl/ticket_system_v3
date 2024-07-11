@@ -1,4 +1,6 @@
 <div>
+
+    @if($ticketStatus == 'open')
     <form wire:submit.prevent='saveReply()'>
         <textarea wire:model='reply' class="w-full border-gray-300" cols="30" rows="3"></textarea>
         
@@ -14,7 +16,9 @@
 
     </form>
 
+    @endif
 
+    
     <div class="mt-8 text-sm">
         @if($replies)
             @foreach ($replies as $r)

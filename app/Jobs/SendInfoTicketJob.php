@@ -19,7 +19,7 @@ class SendInfoTicketJob implements ShouldQueue
     /**
      * Create a new job instance.
      */
-    public function __construct(public string $title, public string $desc, public User $user)
+    public function __construct(public string $title, public string $desc, public User $user, public string $id)
     {
         //
     }
@@ -30,7 +30,7 @@ class SendInfoTicketJob implements ShouldQueue
     public function handle(): void
     {
         logger('email about info ticket created');
-        Mail::to($this->user->email)->send(new InfoTicketMail($this->title, $this->desc, $this->user->name));
+        Mail::to($this->user->email)->send(new InfoTicketMail($this->title, $this->desc, $this->user->name, $this->id));
         
         Mail::to('adminticket@teste.com')->send(new InfoTicketAdminMail($this->title, $this->desc, $this->user->name));
         

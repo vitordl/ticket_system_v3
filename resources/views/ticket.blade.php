@@ -28,31 +28,51 @@
                                 <p class="text-sm mt-5">{{$ticket->user->name}}</p>
                             </div>
 
-                            @if(auth()->user()->isAdmin)
-
-                                @if($ticket->status == 'pending')
-                            
-                                <div class="my-4 text-center">
-                                
-                                    <a href="{{route('ticket-open', $ticket->id)}}" class="bg-emerald-500 text-white px-4 py-2 rounded">Approve</a>
-                                    <a href="" class="bg-red-500 text-white px-4 py-2 rounded">Deny</a>
-                                    {{-- {{route('ticket-refused', $ticket->id)}} --}}
-                                </div>
-                                @endif
+                            @if(auth()->user()->isAdmin && $ticket->status == 'pending')
+                            <div class="mt-10">
+                            </div>
                             @endif
                             
+                            @if(auth()->user()->isAdmin && $ticket->status == 'pending')
+                            <div class="flex mb-10 gap-3">
+                                <div>
+                                    <a href="{{route('accept-ticket', $ticket->id)}}" 
+                                        class="bg-emerald-500 px-2 py-2 text-sm text-white rounded">
+                                        Accept ticket
+                                    </a>
+                                  
+                                </div>
+
+                                <div>
+                                    <a href="{{route('refuse-ticket', $ticket->id)}}" 
+                                        class="bg-red-500 px-2 py-2 text-sm text-white rounded">
+                                        Refuse ticket
+                                    </a>
+                                </div>
+
+                            </div>
+                            @endif
+                            
+                            @if($ticket->status == 'open' || $ticket->status == 'closed')
                             <div class="border  p-4 my-4 ">  
                                 <h4 class="uppercase font-bold">Replies Section</h4>
 
                                 <div>
-                                    <livewire:reply-ticket-livewire :ticketId="$ticket->id"/>
+                                    <livewire:reply-ticket-livewire :ticketId="$ticket->id" :ticketStatus="$ticket->status"/>
                                 </div>
                             </div>
+                            @endif
+
+                            @if(auth()->user()->isAdmin && $ticket->status == 'open')
+                            <div class="mt-10">
+                                <a href="{{route('finish-ticket', $ticket->id)}}" class="text-white bg-emerald-500 p-2 ">Finish ticket</a>
+                            </div>
+                            @endif
 
                         </div>
                         <div class="col-span-4 mx-2 ">
                            
-                            boa noite
+                           {{-- building ideas --}}
                         </div>
                     </div>
                 </div>

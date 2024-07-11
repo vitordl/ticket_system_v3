@@ -9,14 +9,14 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class InfoTicketMail extends Mailable
+class TicketAcceptedMail extends Mailable
 {
     use Queueable, SerializesModels;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(public string $title, public string $desc, public string $name, public string $id)
+    public function __construct(public string $id, public string $title, public string $description)
     {
         //
     }
@@ -27,7 +27,7 @@ class InfoTicketMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: "Your ticket {$this->id} was created",
+            subject: "Your ticket #{$this->id} was forwarded to support team",
         );
     }
 
@@ -37,7 +37,7 @@ class InfoTicketMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'mail.info-ticket-mail',
+            markdown: 'mail.ticket-accepted-mail',
         );
     }
 

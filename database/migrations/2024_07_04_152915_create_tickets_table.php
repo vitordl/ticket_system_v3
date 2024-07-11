@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->enum('status', ['pending', 'approved', 'open', 'closed'])->default('pending');
+            $table->enum('status', ['pending', 'approved', 'open', 'closed', 'refused'])->default('pending');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('support_id')->default(1);
             $table->foreign('user_id')->references('id')->on('users');

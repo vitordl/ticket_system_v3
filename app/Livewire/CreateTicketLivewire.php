@@ -35,18 +35,16 @@ class CreateTicketLivewire extends Component
         ]);
         
         
-        SendInfoTicketJob::dispatch($this->title, $this->description, $user);
+        SendInfoTicketJob::dispatch($this->title, $this->description, $user, $ticket->id);
 
-        notify()->success('Ticket '.$ticket->id.' was created successfully! And its waiting for approval');
+        notify()->success('Ticket '.$ticket->id.' was created successfully! And it is waiting for approval');
 
-        event(new TicketCreatedEvent());
+        // event(new TicketCreatedEvent());
       
       
         $this->reset([
         'title', 'description'
         ]);
 
-
- 
     }
 }
