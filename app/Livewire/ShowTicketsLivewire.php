@@ -92,7 +92,7 @@ class ShowTicketsLivewire extends Component
         $ticket->save();
 
         notify()->success('Ticket '.$ticket->id.' was approved by '.auth()->user()->name);
-
+       
         return redirect()->route('dashboard');
 
     }
