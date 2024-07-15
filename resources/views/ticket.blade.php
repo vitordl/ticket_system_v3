@@ -37,6 +37,7 @@
                             <div class="flex mb-10 gap-3">
                                 <div>
                                     <a href="{{route('accept-ticket', $ticket->id)}}" 
+                                        id="accept"
                                         class="bg-emerald-500 px-2 py-2 text-sm text-white rounded">
                                         Accept ticket
                                     </a>
@@ -45,6 +46,7 @@
 
                                 <div>
                                     <a href="{{route('refuse-ticket', $ticket->id)}}" 
+                                        id="refuse"
                                         class="bg-red-500 px-2 py-2 text-sm text-white rounded">
                                         Refuse ticket
                                     </a>
@@ -80,5 +82,30 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            
+            document.querySelector('#accept').addEventListener('click', function(){
+             
+             Swal.fire({
+                 icon: "success",
+                 title: "Ticket accepted",
+                 text: "Ticked accepted successfully!",
+                 showConfirmButton: false,
+                 timer: 2000,
+             });
+         })
+
+         document.querySelector('#refuse').addEventListener('click', function(){
+          
+             Swal.fire({
+                 icon: "error",
+                 title: "Ticked refused",
+                 text: "Ticked refused successfully!",
+                 showConfirmButton: false,
+                 timer: 2000,
+             });
+         })
+        </script>
     </div>
 </x-app-layout>

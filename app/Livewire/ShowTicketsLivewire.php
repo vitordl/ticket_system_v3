@@ -13,23 +13,29 @@ class ShowTicketsLivewire extends Component
     public $status = 'pending';
 
 
+
     public function render()
     {   
     
         if(auth()->user()->isAdmin){
             $tickets = Ticket::where('status', '=', $this->status)
-            ->orderBy('updated_at', 'desc')->get();
+            ->orderBy('updated_at', 'desc')
+            ->get();
         }else{
             $tickets = Ticket::where('status', '=', $this->status)
             ->where('user_id', '=', auth()->user()->id)
-            ->orderBy('updated_at', 'desc')->get();
+            ->orderBy('updated_at', 'desc')
+            ->get();
         }
 
         $statusTicket = $this->status;
- 
+
+        
         return view('livewire.show-tickets-livewire', [
             'tickets' => $tickets,
-            'statusTicket' => $statusTicket
+            'statusTicket' => $statusTicket,
+            'qtTickets' => $tickets->count(),
+    
         ]);
     }
 
@@ -49,11 +55,9 @@ class ShowTicketsLivewire extends Component
 
 
     public function accept(Ticket $ticket){
-        
-        
+       
         $ticket->status = 'open';
         $ticket->save();
-        
      
         notify()->success('Ticket '.$ticket->id.' was approved by '.auth()->user()->name);
 
