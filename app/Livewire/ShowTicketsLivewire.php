@@ -77,6 +77,7 @@ class ShowTicketsLivewire extends Component
         
         TicketRefusedJob::dispatch($ticket->user->email, $ticket->id, $ticket->title, $ticket->description);
 
+
     }
 
     public function finishTicket(Ticket $ticket){
@@ -88,6 +89,10 @@ class ShowTicketsLivewire extends Component
 
         return redirect()->route('dashboard');
 
+    }
+    
+    public function finishTic(Ticket $ticket){
+        dd('aqui');
     }
 
     public function acceptTicket(Ticket $ticket){

@@ -3,7 +3,7 @@
             <button wire:click.prevent="showTickets('pending')" 
         class="flex items-center font-semibold hover:bg-gray-200 bg-white p-4">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
-                class="size-6 fill-yellow-500">
+                class="size-6 ">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
                 </svg>
                 <span class="hidden md:block">Pending Tickets </span>
@@ -14,7 +14,7 @@
             <button wire:click.prevent="showTickets('open')" 
             class="flex items-center font-semibold hover:bg-gray-200 bg-white p-4">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
-                class="size-6 fill-orange-500">
+                class="size-6 ">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m9 13.5 3 3m0 0 3-3m-3 3v-6m1.06-4.19-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
                 </svg>
                 <span class="hidden md:block">Open Tickets</span>
@@ -25,7 +25,7 @@
             <button wire:click.prevent="showTickets('closed')" 
             class="flex items-center font-semibold hover:bg-gray-200 bg-white p-4">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
-                class="size-6 fill-emerald-500">
+                class="size-6 ">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                 </svg>   
                   
@@ -82,8 +82,11 @@
                                         
                                         @if($t->status == 'refused')
                                         <div class="border bg-gray-300 mb-4 p-2 rounded-lg shadow-xl">
-                                        @else 
+                                        @elseif($t->status == 'pending')
+                                        <div class="border bg-gray-50 mb-4 p-2 rounded-lg shadow-xl">
+                                        @else
                                         <div class="border bg-orange-200 mb-4 p-2 rounded-lg shadow-xl">
+
                                         @endif
 
                         
@@ -105,24 +108,7 @@
                                         </div>
                                     </a>
                         
-                                    @if(auth()->user()->isAdmin && $t->status == 'pending')
-                                    <div class="flex mb-10 gap-3">
-                                        <div>
-                                            <button class="bg-emerald-500 px-2 py-1 text-sm text-white rounded" 
-                                            id="accept"
-                                            wire:click.prevent="accept({{$t->id}})">Accept</button>
-                                        </div>
-    
-                                        <div>
-                                            <button class="bg-red-500 px-2 py-1 text-sm text-white rounded" 
-                                            id="refuse"
-                                            wire:click.prevent="refused({{$t->id}})">Refuse</button>
-                                        </div>
-
-                                    </div>
-                                    @endif
-
-                                    
+                                  
                                     
                                 @endforeach
                         
@@ -135,47 +121,18 @@
                         </div>
                         <div class="col-span-4 mx-2 ">
                             <div class="bg-gray-200 rounded-lg shadow-xl text-center">
-                                {{-- <h4 class="font-bold uppercase">Recent activity</h4>
-                                <div class="mt-4 text-xs">
-                                    <p>You creted a new ticket11</p>
-                                    <p>You creted a new ticket</p>
 
-                                </div> --}}
+                               {{-- <div> building </div> --}}
             
                             </div>
                         </div>
                         
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <script>
-           
-            document.querySelector('#accept').addEventListener('click', function(){
-             
-                Swal.fire({
-                    icon: "success",
-                    title: "Ticket accepted",
-                    text: "Ticked accepted successfully!",
-                    showConfirmButton: false,
-                    timer: 2000,
-                });
-
-            })
-
-            document.querySelector('#refuse').addEventListener('click', function(){
-             
-                Swal.fire({
-                    icon: "error",
-                    title: "Ticked refused",
-                    text: "Ticked refused successfully!",
-                    showConfirmButton: false,
-                    timer: 2000,
-                });
-            })
-        </script>
     </div>
+
+</div>
 
    

@@ -36,21 +36,42 @@
                             @if(auth()->user()->isAdmin && $ticket->status == 'pending')
                             <div class="flex mb-10 gap-3">
                                 <div>
-                                    <a href="{{route('accept-ticket', $ticket->id)}}" 
+                                    {{-- <a href="{{route('accept-ticket', $ticket->id)}}" 
                                         id="accept"
-                                        class="bg-emerald-500 px-2 py-2 text-sm text-white rounded">
+                                        class=" text-green-600 font-bold underline">
                                         Accept ticket
-                                    </a>
+                                    </a> --}}
+                                    <button id="accept"
+                                    class=" bg-emerald-500 px-2 py-2 text-sm text-white rounded">
+                                        Accept ticket
+                                    </button>
+
+                                    <form action="{{route('accept-ticket', $ticket->id)}}"
+                                        id="accept-form">
+                                    </form>
+
                                   
                                 </div>
 
                                 <div>
-                                    <a href="{{route('refuse-ticket', $ticket->id)}}" 
+                                    {{-- <a href="{{route('refuse-ticket', $ticket->id)}}" 
                                         id="refuse"
                                         class="bg-red-500 px-2 py-2 text-sm text-white rounded">
                                         Refuse ticket
-                                    </a>
+                                    </a> --}}
+
+                               
+                                    <button id="refuse"
+                                    class=" bg-red-500 px-2 py-2 text-sm text-white rounded">
+                                        Refuse ticket
+                                    </button>
+
+                                    <form action="{{route('refuse-ticket', $ticket->id)}}"
+                                        id="refuse-form">
+                                    </form>
+                                  
                                 </div>
+
 
                             </div>
 
@@ -69,7 +90,9 @@
 
                             @if(auth()->user()->isAdmin && $ticket->status == 'open')
                             <div class="mt-10">
-                                <a href="{{route('finish-ticket', $ticket->id)}}" class="text-white bg-emerald-500 p-2 ">Finish ticket</a>
+
+
+                                <livewire:finish-ticket-livewire :ticketId="$ticket->id" />
                             </div>
                             @endif
 
@@ -84,28 +107,69 @@
         </div>
 
         <script>
-            
+
+
+            // document.querySelector('#accept').addEventListener('click', function(){
+             
+            //     Swal.fire({
+            //         icon: "success",
+            //         title: "Ticket accepted",
+            //         text: "Ticked accepted successfully!",
+            //         showConfirmButton: false,
+            //         timer: 2000,
+                    
+            //     });
+            // });
+
             document.querySelector('#accept').addEventListener('click', function(){
              
              Swal.fire({
-                 icon: "success",
-                 title: "Ticket accepted",
-                 text: "Ticked accepted successfully!",
-                 showConfirmButton: false,
-                 timer: 2000,
-             });
+                icon: "success",
+                title: "Are you sure you want to accept the ticket?",
+                showCancelButton: true,
+                confirmButtonText: "Yes",
+                customClass: {
+                    confirmButton: 'bg-emerald-500',
+                    cancelButton: 'bg-red-500'
+
+                }
+
+             }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire("Ticket accepted!", "", "success");
+                    document.querySelector('#accept-form').submit();
+                } 
+             })
+
          })
 
-         document.querySelector('#refuse').addEventListener('click', function(){
-          
+
+            document.querySelector('#refuse').addEventListener('click', function(){
+             
              Swal.fire({
-                 icon: "error",
-                 title: "Ticked refused",
-                 text: "Ticked refused successfully!",
-                 showConfirmButton: false,
-                 timer: 2000,
-             });
+                icon: "error",
+                title: "Are you sure you want to refuse the ticket?",
+                showCancelButton: true,
+                confirmButtonText: "Yes",
+                customClass: {
+                    confirmButton: 'bg-emerald-500',
+                    cancelButton: 'bg-red-500'
+
+                }
+
+             }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire("Ticket refused!", "", "error");
+                    document.querySelector('#refuse-form').submit();
+                } 
+             })
+
          })
+
+      
+
+
+
         </script>
     </div>
 </x-app-layout>
