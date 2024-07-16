@@ -11,7 +11,7 @@
                 <div class="p-4 text-gray-900 dark:text-gray-100">
 
                     <div class="uppercase text-2xl mb-4">
-                        ticket [{{$ticket->id}}]
+                        chamado [{{$ticket->id}}]
                     </div>
                     
                     <div class="md:grid grid-cols-12">
@@ -39,7 +39,7 @@
                                 
                                     <button id="accept"
                                     class="bg-emerald-500 px-2 py-2 text-sm text-white rounded">
-                                        Accept ticket
+                                        Aceitar chamado
                                     </button>
 
                                     <form action="{{route('accept-ticket', $ticket->id)}}"
@@ -54,7 +54,7 @@
                                
                                     <button id="refuse"
                                     class="bg-red-500 px-2 py-2 text-sm text-white rounded">
-                                        Refuse ticket
+                                        Recusar chamado
                                     </button>
 
                                     <form action="{{route('refuse-ticket', $ticket->id)}}"
@@ -71,7 +71,7 @@
                             
                             @if($ticket->status == 'open' || $ticket->status == 'closed')
                             <div class="mt-10">  
-                                <h4 class="uppercase font-bold">Replies Section</h4>
+                                <h4 class="uppercase font-bold">Seção de respostas</h4>
 
                                 <div>
                                     <livewire:reply-ticket-livewire :ticketId="$ticket->id" :ticketStatus="$ticket->status"/>
@@ -104,9 +104,10 @@
              
                 Swal.fire({
                     icon: "success",
-                    title: "Are you sure you want to accept the ticket?",
+                    title: "Você tem certeza que quer aceitar o chamado?",
                     showCancelButton: true,
-                    confirmButtonText: "Yes",
+                    confirmButtonText: "Sim",
+                    cancelButtonText: 'Cancelar',
                     customClass: {
                         confirmButton: 'bg-emerald-500',
                         cancelButton: 'bg-red-500'
@@ -115,7 +116,7 @@
 
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        Swal.fire("Ticket accepted!", "", "success");
+                        Swal.fire("Chamado aceito!", "", "success");
                         document.querySelector('#accept-form').submit();
                     } 
                 })
@@ -127,9 +128,10 @@
              
                 Swal.fire({
                     icon: "error",
-                    title: "Are you sure you want to refuse the ticket?",
+                    title: "Você tem certeza que quer recusar o chamado?",
                     showCancelButton: true,
-                    confirmButtonText: "Yes",
+                    confirmButtonText: "Sim",
+                    cancelButtonText: 'Cancelar',
                     customClass: {
                         confirmButton: 'bg-emerald-500',
                         cancelButton: 'bg-red-500'
@@ -138,7 +140,7 @@
 
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        Swal.fire("Ticket refused!", "", "error");
+                        Swal.fire("Chamado recusado!", "", "error");
                         document.querySelector('#refuse-form').submit();
                     } 
                 })

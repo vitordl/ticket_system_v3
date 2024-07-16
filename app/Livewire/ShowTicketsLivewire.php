@@ -59,7 +59,7 @@ class ShowTicketsLivewire extends Component
         $ticket->status = 'closed';
         $ticket->save();
 
-        notify()->success('Ticket '.$ticket->id.' was finished by '.auth()->user()->name);
+        notify()->success('Chamado '.$ticket->id.' foi finalizado por '.auth()->user()->name);
 
         return redirect()->route('dashboard');
 
@@ -71,7 +71,7 @@ class ShowTicketsLivewire extends Component
         $ticket->status = 'open';
         $ticket->save();
 
-        notify()->success('Ticket '.$ticket->id.' was approved by '.auth()->user()->name);
+        notify()->success('Chamado '.$ticket->id.' foi aprovado por '.auth()->user()->name);
 
         TicketAcceptedJob::dispatch($ticket->user->email, $ticket->id, $ticket->title, $ticket->description);
        
@@ -84,7 +84,7 @@ class ShowTicketsLivewire extends Component
         $ticket->status = 'refused';
         $ticket->save();
 
-        notify()->warning('Ticket '.$ticket->id.' was refused by '.auth()->user()->name);
+        notify()->warning('Chamado '.$ticket->id.' foi recusado por '.auth()->user()->name);
 
         TicketRefusedJob::dispatch($ticket->user->email, $ticket->id, $ticket->title, $ticket->description);
 

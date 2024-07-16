@@ -1,15 +1,12 @@
 <x-mail::message>
-# Ticket was created
+# Chamado foi criado
 
-The user {{$name}} created a new ticket
+Usuário {{$name}} criou um novo chamado
 
-# Ticket {{$title}}
+# Chamado:  {{$title}}
 {{$desc}}
 
-<x-mail::button :url="''">
-Access
-</x-mail::button>
 
-Thanks,<br>
+Obrigado,<br>
 {{ config('app.name') }}
 </x-mail::message>

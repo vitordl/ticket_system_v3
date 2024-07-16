@@ -27,7 +27,7 @@ class TickedRepliedAdminMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: "Ticket System: New reply from ticket #{$this->id}",
+            subject: "Ticket System: Nova resposta do chamado #{$this->id}",
         );
     }
 

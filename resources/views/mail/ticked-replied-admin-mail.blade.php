@@ -1,12 +1,10 @@
 <x-mail::message>
-The ticket {{$id}} has received a reply from the user.
+O chamado {{$id}} recebeu uma resposta do usuário.
 <br><br>
 "{{$reply}}"
 
-<x-mail::button :url="''">
-Access
-</x-mail::button>
 
-Thanks,<br>
+
+Obrigado,<br>
 {{ config('app.name') }}
 </x-mail::message>

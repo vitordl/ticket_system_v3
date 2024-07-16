@@ -27,7 +27,7 @@ class InfoTicketMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: "Your ticket {$this->id} was created",
+            subject: "Seu chamado {$this->id} foi criado",
         );
     }
 

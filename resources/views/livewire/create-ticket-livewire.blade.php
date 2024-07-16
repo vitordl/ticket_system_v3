@@ -4,7 +4,7 @@
 
         <div class="mb-2">
             <div>
-                <label for="title">Title</label>
+                <label for="title">Título do chamado</label>
             </div>
             <input type="text" name="title" id="title" wire:model='title' class="w-full rounded-lg border-gray-500">
         </div>
@@ -15,10 +15,10 @@
 
         <div class="mt-2">
             <div>
-                <label for="description">Description</label>
+                <label for="description">Descrição do chamado</label>
             </div>
 
-            <textarea wire:model='description' name="description" id="description" cols="30" rows="5" class="w-full rounded-lg border-gray-500">aqui...</textarea>
+            <textarea wire:model='description' name="description" id="description" cols="30" rows="5" class="w-full rounded-lg border-gray-500"></textarea>
         </div>
         @error('description')
            <div class="text-xs text-amber-600">{{$message}}</div> 

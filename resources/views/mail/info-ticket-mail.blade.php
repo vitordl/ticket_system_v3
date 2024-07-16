@@ -1,19 +1,17 @@
 <x-mail::message>
 
-You created a ticket and it is waiting for approval<br>
+Você criou um chamado e está aguardando por aprovação do admin<br>
 
 # {{$title}}
 
 {{$desc}}
 
 <br>
-Soon you will have a reply from our supports. 
+Logo você receberá uma resposta do suporte 
 <br>
 
-<x-mail::button :url="''">
-More info
-</x-mail::button>
 
-Thanks,<br>
+
+Obrigado,<br>
 {{ config('app.name') }}
 </x-mail::message>

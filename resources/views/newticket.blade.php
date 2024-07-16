@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('New Ticket') }}
+            {{ __('Novo Ticket') }}
         </h2>
     </x-slot>
 
@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
 
                     <div class="uppercase text-2xl mb-4">
-                        New ticket
+                        Novo Ticket
                     </div>
                     
                     <div class="md:grid grid-cols-12">

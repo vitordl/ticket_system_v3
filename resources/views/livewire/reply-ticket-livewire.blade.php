@@ -11,7 +11,7 @@
         </div>
         
         <div class="mt-4">
-            <x-primary-button type="submit">Reply</x-primary-button>
+            <x-primary-button type="submit">Responder</x-primary-button>
         </div>
 
     </form>
@@ -33,7 +33,7 @@
               </div>  
             @endforeach
         @else
-            Waiting for replies...
+            Aguardando respostas...
         @endif
 
     </div>

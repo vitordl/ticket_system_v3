@@ -1,16 +1,14 @@
 <x-mail::message>
-Your ticket {{$id}} was accepted and soon will get a reply.
+Seu chamado {{$id}} foi aceito e logo receberá uma resposta.
 <br><br>
 
-Ticket details:<br>
+Detalhes do chamado:<br>
 {{$title}}<br>
 {{$description}}
 
 
-<x-mail::button :url="''">
-More info
-</x-mail::button>
 
-Thanks,<br>
+
+Obrigado,<br>
 {{ config('app.name') }}
 </x-mail::message>

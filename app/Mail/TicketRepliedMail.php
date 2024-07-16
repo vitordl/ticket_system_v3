@@ -27,7 +27,7 @@ class TicketRepliedMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: "Your ticket #{$this->id} has received a reply",
+            subject: "Seu chamado #{$this->id} recebeu uma resposta",
         );
     }
 

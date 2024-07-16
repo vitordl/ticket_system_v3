@@ -37,7 +37,7 @@ class CreateTicketLivewire extends Component
         
         SendInfoTicketJob::dispatch($this->title, $this->description, $user, $ticket->id);
         
-        notify()->success('Ticket '.$ticket->id.' was created successfully! And it is waiting for approval');
+        notify()->success('Chamado '.$ticket->id.' foi criado com successo! E está aguardando por aprovação do admin');
         
         return redirect()->route('dashboard');
         

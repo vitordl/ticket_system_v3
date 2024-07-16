@@ -27,7 +27,7 @@ class TicketRefusedMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: "Your ticket #{$this->id} has been declined",
+            subject: "Seu chamado #{$this->id} foi recusado",
         );
     }
 

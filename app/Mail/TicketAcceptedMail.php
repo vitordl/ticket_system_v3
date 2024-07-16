@@ -27,7 +27,7 @@ class TicketAcceptedMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: "Your ticket #{$this->id} was forwarded to support team",
+            subject: "Seu chamado #{$this->id} foi encaminhado para a equipe de suporte",
         );
     }
 

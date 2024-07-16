@@ -6,8 +6,8 @@
                 class="size-6 ">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
                 </svg>
-                <span class="hidden md:block">Pending Tickets </span>
-                <span class="md:hidden">Pending</span>
+                <span class="hidden md:block">Chamados Pendentes</span>
+                <span class="md:hidden">Pendentes</span>
                  
             </button>
        
@@ -17,8 +17,8 @@
                 class="size-6 ">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m9 13.5 3 3m0 0 3-3m-3 3v-6m1.06-4.19-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
                 </svg>
-                <span class="hidden md:block">Open Tickets</span>
-                <span class="md:hidden">Open</span>
+                <span class="hidden md:block">Chamados Abertos</span>
+                <span class="md:hidden">Abertos</span>
             </button>
         
         
@@ -29,8 +29,8 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                 </svg>   
                   
-                <span class="hidden md:block">Closed Tickets</span>
-                <span class="md:hidden">Closed</span>
+                <span class="hidden md:block">Chamados Finalizados</span>
+                <span class="md:hidden">Finalizados</span>
             </button>
 
           
@@ -42,7 +42,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75 14.25 12m0 0 2.25 2.25M14.25 12l2.25-2.25M14.25 12 12 14.25m-2.58 4.92-6.374-6.375a1.125 1.125 0 0 1 0-1.59L9.42 4.83c.21-.211.497-.33.795-.33H19.5a2.25 2.25 0 0 1 2.25 2.25v10.5a2.25 2.25 0 0 1-2.25 2.25h-9.284c-.298 0-.585-.119-.795-.33Z" />
                 </svg>
                     
-                Refused Tickets
+                Chamados Recusados
             </button>
             @endif
 
@@ -57,7 +57,7 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <div class="uppercase mb-4">
-                        <h4 class="text-2xl">{{$statusTicket}} Tickets 
+                        <h4 class="text-2xl">{{$statusTicket}} 
                             
                         @if($qtTickets > 0)
                         <span class="text-sm">({{$qtTickets}})</span>
@@ -103,7 +103,7 @@
                                             <div class="text-xs text-end text-amber-500">{{$t->created_at->format('d/m/y H:i')}}</div>
                                             
                                             @if($t->reply->count())
-                                            <div class="text-xs">Commennts ({{count($t->reply)}})</div>
+                                            <div class="text-xs">Comentários ({{count($t->reply)}})</div>
                                             @endif
                                         </div>
                                     </a>
@@ -113,7 +113,7 @@
                                 @endforeach
                         
                             @else  
-                                <div>You don't have tickets!</div>
+                                <div>Você não possui chamados!</div>
                         
                             @endif
                         

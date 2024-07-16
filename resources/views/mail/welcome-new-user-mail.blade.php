@@ -1,12 +1,9 @@
 <x-mail::message>
-# Introduction
 
-Welcome {{$user}}!  Thank you for registrating.
+Bem-vindo {{$user}}!  Obrigado pelo registro.
 
-<x-mail::button :url="''">
-More information
-</x-mail::button>
 
-Our Team,<br>
+
+Nossa equipe,<br>
 {{ config('app.name') }}
 </x-mail::message>

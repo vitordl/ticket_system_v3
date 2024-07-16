@@ -27,7 +27,7 @@ class InfoTicketAdminMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Ticket System: New ticket created',
+            subject: 'Ticket System: Novo chamado criado',
         );
     }
 
