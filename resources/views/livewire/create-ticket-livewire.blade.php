@@ -33,7 +33,7 @@
     
     <x-notify::notify />
     
-    <button  type="button" class="text-xs " id="preencher">Preencher</button>
+    <button  type="button" class="text-xs hidden" id="preencher">Preencher</button>
 
 
     <script>
