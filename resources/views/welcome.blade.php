@@ -46,7 +46,7 @@
                                             href="{{ route('register') }}"
                                             class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                                         >
-                                            Register
+                                            Registro
                                         </a>
                                     @endif
                                 @endauth
@@ -114,7 +114,7 @@
                                     <h2 class="text-xl font-semibold text-black dark:text-white">Ticket System</h2>
 
                                     <p class="mt-4 text-sm/relaxed">
-                                        Welcome to the Ticket System             
+                                        Bem-vindo ao Ticket System             
                                     </p>
                                 </div>
 
@@ -133,7 +133,7 @@
                                     <h2 class="text-xl font-semibold text-black dark:text-white">Ticket System</h2>
 
                                     <p class="mt-4 text-sm/relaxed">
-                                        Make your registration or login with our auto-login feature for users.
+                                        Faça o seu registro ou o login com as opções de auto login.
                                     </p>
                                 </div>
 
