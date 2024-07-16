@@ -22,19 +22,24 @@ class ReplyTicketLivewire extends Component
 
     public function saveReply(){
 
+        $ticket = Ticket::find($this->ticketId);
+
+        if($ticket->status == 'closed'){
+            return redirect()->route('dashboard');
+        }
+
+
         $this->validate([
             'reply' => 'required'
         ]);
 
+    
         $reply = Reply::create([
             'reply' => $this->reply,
             'ticket_id' => $this->ticketId,
             'user_id' => auth()->user()->id
         ]);
 
-        $ticket = Ticket::find($this->ticketId);
-
-        
 
         $this->reset('reply');
 
