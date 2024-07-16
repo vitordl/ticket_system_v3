@@ -21,10 +21,12 @@ Route::middleware('auth')->group(function () {
         return view('newticket');
     })->name('newticket');
 
+    Route::get('/email/verify', function () {
+        return view('auth.verify-email');
+    })->name('verification.notice');
+
   
     Route::get('ticket/{ticket}', [ShowTicketsLivewire::class, 'showItem'])->name('ticket');
-    // Route::get('approve/{ticket}', [ShowTicketsLivewire::class, 'ticketApprove'])->name('ticket-approve');
-    // Route::get('ticket/{ticket}', [ShowTicketsLivewire::class, 'changeStatusToRefused'])->name('ticket-refused');
 
     Route::get('finish/{ticket}', [ShowTicketsLivewire::class, 'finishTicket'])->name('finish-ticket');
     

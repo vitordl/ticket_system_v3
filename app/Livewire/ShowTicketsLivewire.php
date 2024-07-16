@@ -54,32 +54,6 @@ class ShowTicketsLivewire extends Component
 
 
 
-    public function accept(Ticket $ticket){
-       
-        $ticket->status = 'open';
-        $ticket->save();
-     
-        notify()->success('Ticket '.$ticket->id.' was approved by '.auth()->user()->name);
-
-        
-        TicketAcceptedJob::dispatch($ticket->user->email, $ticket->id, $ticket->title, $ticket->description);
-
-    }
-
-
-    public function refused(Ticket $ticket){
-        
-        
-        $ticket->status = 'refused';
-        $ticket->save();
-        
-        notify()->warning('Ticket '.$ticket->id.' was refused by '.auth()->user()->name);
-        
-        TicketRefusedJob::dispatch($ticket->user->email, $ticket->id, $ticket->title, $ticket->description);
-
-
-    }
-
     public function finishTicket(Ticket $ticket){
 
         $ticket->status = 'closed';
@@ -91,9 +65,6 @@ class ShowTicketsLivewire extends Component
 
     }
     
-    public function finishTic(Ticket $ticket){
-        dd('aqui');
-    }
 
     public function acceptTicket(Ticket $ticket){
 
@@ -101,6 +72,8 @@ class ShowTicketsLivewire extends Component
         $ticket->save();
 
         notify()->success('Ticket '.$ticket->id.' was approved by '.auth()->user()->name);
+
+        TicketAcceptedJob::dispatch($ticket->user->email, $ticket->id, $ticket->title, $ticket->description);
        
         return redirect()->route('dashboard');
 
@@ -112,6 +85,8 @@ class ShowTicketsLivewire extends Component
         $ticket->save();
 
         notify()->warning('Ticket '.$ticket->id.' was refused by '.auth()->user()->name);
+
+        TicketRefusedJob::dispatch($ticket->user->email, $ticket->id, $ticket->title, $ticket->description);
 
         return redirect()->route('dashboard');
 

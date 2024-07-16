@@ -36,13 +36,9 @@
                             @if(auth()->user()->isAdmin && $ticket->status == 'pending')
                             <div class="flex mb-10 gap-3">
                                 <div>
-                                    {{-- <a href="{{route('accept-ticket', $ticket->id)}}" 
-                                        id="accept"
-                                        class=" text-green-600 font-bold underline">
-                                        Accept ticket
-                                    </a> --}}
+                                
                                     <button id="accept"
-                                    class=" bg-emerald-500 px-2 py-2 text-sm text-white rounded">
+                                    class="bg-emerald-500 px-2 py-2 text-sm text-white rounded">
                                         Accept ticket
                                     </button>
 
@@ -54,15 +50,10 @@
                                 </div>
 
                                 <div>
-                                    {{-- <a href="{{route('refuse-ticket', $ticket->id)}}" 
-                                        id="refuse"
-                                        class="bg-red-500 px-2 py-2 text-sm text-white rounded">
-                                        Refuse ticket
-                                    </a> --}}
-
+                                    
                                
                                     <button id="refuse"
-                                    class=" bg-red-500 px-2 py-2 text-sm text-white rounded">
+                                    class="bg-red-500 px-2 py-2 text-sm text-white rounded">
                                         Refuse ticket
                                     </button>
 
@@ -109,62 +100,50 @@
         <script>
 
 
-            // document.querySelector('#accept').addEventListener('click', function(){
-             
-            //     Swal.fire({
-            //         icon: "success",
-            //         title: "Ticket accepted",
-            //         text: "Ticked accepted successfully!",
-            //         showConfirmButton: false,
-            //         timer: 2000,
-                    
-            //     });
-            // });
-
             document.querySelector('#accept').addEventListener('click', function(){
              
-             Swal.fire({
-                icon: "success",
-                title: "Are you sure you want to accept the ticket?",
-                showCancelButton: true,
-                confirmButtonText: "Yes",
-                customClass: {
-                    confirmButton: 'bg-emerald-500',
-                    cancelButton: 'bg-red-500'
+                Swal.fire({
+                    icon: "success",
+                    title: "Are you sure you want to accept the ticket?",
+                    showCancelButton: true,
+                    confirmButtonText: "Yes",
+                    customClass: {
+                        confirmButton: 'bg-emerald-500',
+                        cancelButton: 'bg-red-500'
 
-                }
+                    }
 
-             }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire("Ticket accepted!", "", "success");
-                    document.querySelector('#accept-form').submit();
-                } 
-             })
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire("Ticket accepted!", "", "success");
+                        document.querySelector('#accept-form').submit();
+                    } 
+                })
 
-         })
+            })
 
 
             document.querySelector('#refuse').addEventListener('click', function(){
              
-             Swal.fire({
-                icon: "error",
-                title: "Are you sure you want to refuse the ticket?",
-                showCancelButton: true,
-                confirmButtonText: "Yes",
-                customClass: {
-                    confirmButton: 'bg-emerald-500',
-                    cancelButton: 'bg-red-500'
+                Swal.fire({
+                    icon: "error",
+                    title: "Are you sure you want to refuse the ticket?",
+                    showCancelButton: true,
+                    confirmButtonText: "Yes",
+                    customClass: {
+                        confirmButton: 'bg-emerald-500',
+                        cancelButton: 'bg-red-500'
 
-                }
+                    }
 
-             }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire("Ticket refused!", "", "error");
-                    document.querySelector('#refuse-form').submit();
-                } 
-             })
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire("Ticket refused!", "", "error");
+                        document.querySelector('#refuse-form').submit();
+                    } 
+                })
 
-         })
+            })
 
       
 

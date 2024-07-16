@@ -13,9 +13,4 @@ class FinishTicketLivewire extends Component
         return view('livewire.finish-ticket-livewire');
     }
 
-   
-    public function finishTicket($ticketId){
-        dd('oi');
-    }
-
 }

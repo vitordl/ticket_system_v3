@@ -58,8 +58,8 @@
 
     <script>
         document.querySelector('#preencher').addEventListener('click', function(){
-            document.querySelector('#name').value =  'Jetete'
-            document.querySelector('#email').value =  'souteste@teste.com'
+            document.querySelector('#name').value =  'John Doe'
+            document.querySelector('#email').value =  'johndoe@teste.com'
             document.querySelector('#password').value =  'teste123'
             document.querySelector('#password_confirmation').value =  'teste123'
 
